@@ -62,60 +62,54 @@
     {
         "id": "1.13",
         "clean id": "1_13",
-        "content": "In cases of normal execution, the `evaluation details` structure's `variant` field MUST contain the value of the `variant` field in the `flag resolution` structure returned by the configured `provider`.",
+        "content": "In cases of normal execution, the `evaluation details` structure's `variant` field MUST contain the value of the `variant` field in the `flag resolution` structure returned by the configured `provider`, if the field is set.",
         "RFC 2119 keyword": "MUST"
     },
     {
         "id": "1.14",
         "clean id": "1_14",
-        "content": "In cases of normal execution, the `evaluation details` structure's `reason` field MUST contain the value of the `reason` field in the `flag resolution` structure returned by the configured `provider` if the `provider` returns it (if the `provider` does not give a reason, then it does not need to be set.",
+        "content": "In cases of normal execution, the `evaluation details` structure's `reason` field MUST contain the value of the `reason` field in the `flag resolution` structure returned by the configured `provider`, if the field is set.",
         "RFC 2119 keyword": "MUST"
     },
     {
         "id": "1.15",
         "clean id": "1_15",
-        "content": "In cases of normal execution, the `evaluation details` structure's `error code` field MUST contain the value of the `error code` field in the `flag resolution` structure returned by the configured `provider`.",
+        "content": "In cases of abnormal execution, the `evaluation details` structure's `error code` field MUST identify an error occurred during flag evaluation, having possible values `\"PROVIDER_NOT_READY\"`, `\"FLAG_NOT_FOUND\"`, `\"PARSE_ERROR\"`, `\"TYPE_MISMATCH\"`, or `\"GENERAL\"`.",
         "RFC 2119 keyword": "MUST"
     },
     {
         "id": "1.16",
         "clean id": "1_16",
-        "content": "In cases of abnormal execution, the `evaluation details` structure's `error code` field MUST identify an error occurred during flag evaluation, having possible values `\"PROVIDER_NOT_READY\"`, `\"FLAG_NOT_FOUND\"`, `\"PARSE_ERROR\"`, `\"TYPE_MISMATCH\"`, or `\"GENERAL\"`.",
-        "RFC 2119 keyword": "MUST"
-    },
-    {
-        "id": "1.17",
-        "clean id": "1_17",
         "content": "In cases of abnormal execution (network failure, unhandled error, etc) the `reason` field in the `evaluation details` SHOULD indicate an error.",
         "RFC 2119 keyword": "SHOULD"
     },
     {
+        "id": "1.17",
+        "clean id": "1_17",
+        "content": "The `evaluation options` structure's `hooks` field denotes a collection of hooks that the client MUST execute for the respective flag evaluation, in addition to those already configured.",
+        "RFC 2119 keyword": "MUST"
+    },
+    {
         "id": "1.18",
         "clean id": "1_18",
-        "content": "The `evaluation options` structure's `hooks` field denotes a collection of hooks to be executed for the respective flag evaluation.",
-        "RFC 2119 keyword": null
+        "content": "Methods, functions, or operations on the client MUST NOT throw exceptions, or otherwise abnormally terminate. Flag evaluation calls must always return the `default value` in the event of abnormal execution. Exceptions include functions or methods for the purposes for configuration or setup.",
+        "RFC 2119 keyword": "MUST NOT"
     },
     {
         "id": "1.19",
         "clean id": "1_19",
-        "content": "No methods, functions, or operations on the client should ever throw exceptions, or otherwise abnormally terminate. Flag evaluation calls must always return the `default value` in the event of abnormal execution. Exceptions include functions or methods for the purposes for configuration or setup.",
-        "RFC 2119 keyword": null
+        "content": "In the case of abnormal execution, the client SHOULD log an informative error message.",
+        "RFC 2119 keyword": "SHOULD"
     },
     {
         "id": "1.20",
         "clean id": "1_20",
-        "content": "In the case of abnormal execution, the client SHOULD log an informative error message.",
+        "content": "The `client` SHOULD provide asynchronous or non-blocking mechanisms for flag evaluation.",
         "RFC 2119 keyword": "SHOULD"
     },
     {
         "id": "1.21",
         "clean id": "1_21",
-        "content": "The `client` SHOULD provide asynchronous or non-blocking mechanisms for flag evaluation.",
-        "RFC 2119 keyword": "SHOULD"
-    },
-    {
-        "id": "1.22",
-        "clean id": "1_22",
         "content": "The `client` MUST transform the `evaluation context` using the `provider's` `context transformer` function, before passing the result of the transformation to the provider's flag resolution functions.",
         "RFC 2119 keyword": "MUST"
     },

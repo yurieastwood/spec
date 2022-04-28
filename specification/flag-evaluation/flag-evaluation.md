@@ -151,47 +151,43 @@ FlagEvaluationDetails<MyStruct> myStructDetails = client.getObjectDetails<MyStru
 
 ##### Requirement 1.13
 
-> In cases of normal execution, the `evaluation details` structure's `variant` field **MUST** contain the value of the `variant` field in the `flag resolution` structure returned by the configured `provider`.
+> In cases of normal execution, the `evaluation details` structure's `variant` field **MUST** contain the value of the `variant` field in the `flag resolution` structure returned by the configured `provider`, if the field is set.
 
 ##### Requirement 1.14
 
-> In cases of normal execution, the `evaluation details` structure's `reason` field **MUST** contain the value of the `reason` field in the `flag resolution` structure returned by the configured `provider`.
+> In cases of normal execution, the `evaluation details` structure's `reason` field **MUST** contain the value of the `reason` field in the `flag resolution` structure returned by the configured `provider`, if the field is set.
 
 ##### Requirement 1.15
 
-> In cases of normal execution, the `evaluation details` structure's `error code` field **MUST** contain the value of the `error code` field in the `flag resolution` structure returned by the configured `provider`.
+> In cases of abnormal execution, the `evaluation details` structure's `error code` field **MUST** identify an error occurred during flag evaluation, having possible values `"PROVIDER_NOT_READY"`, `"FLAG_NOT_FOUND"`, `"PARSE_ERROR"`, `"TYPE_MISMATCH"`, or `"GENERAL"`.
 
 ##### Requirement 1.16
 
-> In cases of abnormal execution, the `evaluation details` structure's `error code` field **MUST** identify an error occurred during flag evaluation, having possible values `"PROVIDER_NOT_READY"`, `"FLAG_NOT_FOUND"`, `"PARSE_ERROR"`, `"TYPE_MISMATCH"`, or `"GENERAL"`.
+> In cases of abnormal execution (network failure, unhandled error, etc) the `reason` field in the `evaluation details` **SHOULD** indicate an error.
 
 ##### Requirement 1.17
 
-> In cases of abnormal execution (network failure, unhandled error, etc) the `reason` field in the `evaluation details` **SHOULD** indicate an error.
-
-##### Requirement 1.18
-
-> The `evaluation options` structure's `hooks` field denotes a collection of hooks to be executed for the respective flag evaluation.
+> The `evaluation options` structure's `hooks` field denotes a collection of hooks that the client **MUST** execute for the respective flag evaluation, in addition to those already configured.
 
 See [hooks](./hooks.md) for details.
 
+##### Requirement 1.18
+
+> Methods, functions, or operations on the client **MUST NOT** throw exceptions, or otherwise abnormally terminate. Flag evaluation calls must always return the `default value` in the event of abnormal execution. Exceptions include functions or methods for the purposes for configuration or setup.
+
 ##### Requirement 1.19
-
-> No methods, functions, or operations on the client should ever throw exceptions, or otherwise abnormally terminate. Flag evaluation calls must always return the `default value` in the event of abnormal execution. Exceptions include functions or methods for the purposes for configuration or setup.
-
-##### Requirement 1.20
 
 > In the case of abnormal execution, the client **SHOULD** log an informative error message.
 
 Implementations may define a standard logging interface that can be supplied as an optional argument to the client creation function, which may wrap standard logging functionality of the implementation language.
 
-##### Requirement 1.21
+##### Requirement 1.20
 
 > The `client` **SHOULD** provide asynchronous or non-blocking mechanisms for flag evaluation.
 
 It's recommended to provide non-blocking mechanisms for flag evaluation, particularly in languages or environments wherein there's a single thread of execution.
 
-##### Requirement 1.22
+##### Requirement 1.21
 
 > The `client` **MUST** transform the `evaluation context` using the `provider's` `context transformer` function, before passing the result of the transformation to the provider's flag resolution functions.
 

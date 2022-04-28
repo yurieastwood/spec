@@ -51,10 +51,6 @@ FlagResolution resolveStructureValue(string flagKey, JsonObject defaultValue, co
 
 > In cases of normal execution, the `provider` **MUST** populate the `flag resolution` structure's `value` field with the resolved flag value.
 
-##### Requirement 2.4
-
-> In cases of abnormal execution, the `provider` **MUST** populate the `flag resolution` structure's `value` field with the default flag value.
-
 ##### Requirement 2.5
 
 > In cases of normal execution, the `provider` **SHOULD** populate the `flag resolution` structure's `variant` field with a string identifier corresponding to the returned flag value.

@@ -68,7 +68,7 @@ A source-of-truth for flag values and rules. Flag management systems may include
 
 ### Provider
 
-An implementation which resolves flag values from a particular flag management system, allowing the use of the [Evaluation API](./flag-evaluation/flag-evaluation.md#flag-evaluation) as an abstraction for the system in question.
+An SDK-compliant implementation which resolves flag values from a particular flag management system, allowing the use of the [Evaluation API](./flag-evaluation/flag-evaluation.md#flag-evaluation) as an abstraction for the system in question.
 
 ### Integration
 
@@ -78,7 +78,7 @@ An SDK-compliant secondary function that is abstracted by the Feature Flag API, 
 
 Context object for flag evaluation, which may contain information about the runtime environment, details of the transport method encapsulating the flag evaluation, the host, the client, the subject (user), etc. This data may be used as a basis for differential evaluation of feature flags based on rules that can be defined in the flag system. Context data may be provided by merging static global context, arguments to flag evaluation, and implicit language-dependant state propagation mechanisms (thread-local storage, promise chains, continuations, etc).
 
-### Flag Evaluation
+### Evaluating Flag Values
 
 The process of retrieving a feature flag value in it's entirety, including:
 
@@ -86,7 +86,7 @@ The process of retrieving a feature flag value in it's entirety, including:
 - resolving a flag value from a configured provider
 - falling back to a supplied default, in the case of abnormal execution
 
-### Flag Value Resolution
+### Resolving Flag Values
 
 The process of a provider retrieving a feature flag value from it's particular source-of-truth.
 

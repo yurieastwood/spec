@@ -64,7 +64,7 @@ The subset of the [Feature Flag API](#feature-flag-api) that the Application Aut
 
 ### Flag Management System
 
-A source-of-truth for flag values and rules. Flag management systems may include Saas feature flag vendors, custom "in-house" feature flag infrastructure, or open-source implementations.
+A source-of-truth for flag values and rules. Flag management systems may include SaaS feature flag vendors, custom "in-house" feature flag infrastructure, or open-source implementations.
 
 ### Provider
 

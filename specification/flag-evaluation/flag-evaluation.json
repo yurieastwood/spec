@@ -68,7 +68,7 @@
     {
         "id": "1.14",
         "clean id": "1_14",
-        "content": "In cases of normal execution, the `evaluation details` structure's `reason` field MUST contain the value of the `reason` field in the `flag resolution` structure returned by the configured `provider`.",
+        "content": "In cases of normal execution, the `evaluation details` structure's `reason` field MUST contain the value of the `reason` field in the `flag resolution` structure returned by the configured `provider` if the `provider` returns it (if the `provider` does not give a reason, then it does not need to be set.",
         "RFC 2119 keyword": "MUST"
     },
     {

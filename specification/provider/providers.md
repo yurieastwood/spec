@@ -4,7 +4,7 @@
 
 The `provider` API defines interfaces that Provider Authors can use to abstract a particular flag management system, thus enabling the use of the `evaluation API` by Application Authors.
 
-#### Feature Provider Interface
+### Feature Provider Interface
 
 ##### Requirement 2.1
 
@@ -35,16 +35,16 @@ See: [flag resolution structure](../types.md#flag-resolution), [flag value resol
 
 ```
 // example boolean flag value resolution
-FlagResolution resolveBooleanValue(string flagKey, boolean defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails resolveBooleanValue(string flagKey, boolean defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 
 // example string flag value resolution
-FlagResolution resolveStringValue(string flagKey, string defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails resolveStringValue(string flagKey, string defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 
 // example number flag value resolution
-FlagResolution resolveNumberValue(string flagKey, number defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails resolveNumberValue(string flagKey, number defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 
 // example structure flag value resolution
-FlagResolution resolveStructureValue(string flagKey, JsonObject defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails resolveStructureValue(string flagKey, JsonObject defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 ```
 
 ##### Requirement 2.4
@@ -85,16 +85,16 @@ The provider might throw an exception, return an error, or populate the `error c
 
 ```
 // example boolean flag value resolution with generic argument
-FlagResolution<boolean> resolveBooleanValue(string flagKey, boolean defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails<boolean> resolveBooleanValue(string flagKey, boolean defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 
 // example string flag value resolution with generic argument
-FlagResolution<string> resolveStringValue(string flagKey, string defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails<string> resolveStringValue(string flagKey, string defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 
 // example number flag value resolution with generic argument
-FlagResolution<number> resolveNumberValue(string flagKey, number defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails<number> resolveNumberValue(string flagKey, number defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 
 // example structure flag value resolution with generic argument
-FlagResolution<MyStruct> resolveStructureValue(string flagKey, MyStruct defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
+ResolutionDetails<MyStruct> resolveStructureValue(string flagKey, MyStruct defaultValue, context: EvaluationContext, options: FlagEvaluationOptions);
 ```
 
 #### Context Transformation

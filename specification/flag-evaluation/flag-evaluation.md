@@ -6,7 +6,7 @@
 
 The `evaluation API` allows for the evaluation of feature flag values, independent of any flag control plane or vendor. In the absence of a [provider](../provider/providers.md) the `evaluation API` uses the "No-op provider", which simply returns the supplied default flag value.
 
-#### API Initialization and Configuration
+### API Initialization and Configuration
 
 ##### Requirement 1.1
 
@@ -62,7 +62,7 @@ OpenFeature.getClient({
 
 The name is a logical identifier for the client.
 
-#### Client Usage
+### Client Usage
 
 ##### Requirement 1.6
 
@@ -113,6 +113,8 @@ MyStruct myStruct = client.getObjectValue<MyStruct>('structured-flag', { text: '
 > ##### Conditional Requirement 1.8.2
 >
 > > The `client` **SHOULD** guarantee the returned value of any typed flag evaluation method is of the expected type. If the value returned by the underlying provider implementation does not match the expected type, it's to be considered abnormal execution, and the supplied `default value` should be returned.
+
+#### Detailed Flag Evaluation
 
 ##### Requirement 1.9
 

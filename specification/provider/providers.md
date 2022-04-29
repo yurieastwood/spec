@@ -105,9 +105,9 @@ See [evaluation context](../evaluation-context/evaluation-context.md).
 
 ##### Requirement 2.10
 
-> The provider interface **SHOULD** define a `context transformer` method or function, which can be optionally implemented in order to transform the `evaluation context` prior to flag value resolution.
+> The provider interface **MAY** define a `context transformer` method or function, which can be optionally implemented in order to transform the `evaluation context` prior to flag value resolution.
 
-The OpenFeature `client` applies the transformer function before passing the returned value (the `transformed context`) to the provider resolution methods.
+The OpenFeature `client` might apply the transformer function before passing the returned value (the `transformed context`) to the provider resolution methods, thus allowing the provider implementation to avoid implementing and calling such transformation logic repeatedly in flag value resolution methods.
 
 ```
 class MyProvider implements Provider {
@@ -130,7 +130,7 @@ See [evaluation context](../evaluation-context/evaluation-context.md), [flag eva
 >
 > ##### Conditional Requirement 2.11.1
 >
-> > The provider **SHOULD** accept a generic argument (or use an equivalent language feature) indicating the type of the transformed context.
+> > If the implementation includes a `context transformer`, the provider **SHOULD** accept a generic argument (or use an equivalent language feature) indicating the type of the transformed context.
 >
 > If such type information is supplied, more accurate type information can be supplied in the flag resolution methods.
 

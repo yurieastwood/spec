@@ -44,8 +44,8 @@
     {
         "id": "2.10",
         "clean id": "2_10",
-        "content": "The provider interface SHOULD define a `context transformer` method or function, which can be optionally implemented in order to transform the `evaluation context` prior to flag value resolution.",
-        "RFC 2119 keyword": "SHOULD"
+        "content": "The provider interface MAY define a `context transformer` method or function, which can be optionally implemented in order to transform the `evaluation context` prior to flag value resolution.",
+        "RFC 2119 keyword": "MAY"
     },
     {
         "id": "Condition 2.3",
@@ -78,7 +78,7 @@
             {
                 "id": "2.11.1",
                 "clean id": "2_11_1",
-                "content": "The provider SHOULD accept a generic argument (or use an equivalent language feature) indicating the type of the transformed context.If such type information is supplied, more accurate type information can be supplied in the flag resolution methods.",
+                "content": "If the implementation includes a `context transformer`, the provider SHOULD accept a generic argument (or use an equivalent language feature) indicating the type of the transformed context.If such type information is supplied, more accurate type information can be supplied in the flag resolution methods.",
                 "RFC 2119 keyword": "SHOULD"
             }
         ]
